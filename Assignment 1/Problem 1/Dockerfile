@@ -8,6 +8,6 @@ RUN pip
 RUN pip install lxml
 
 ADD Problem1.py .
-ADD config.ini .
+COPY config.ini /data/config.ini
 
 CMD ["python", "./Problem1.py"]

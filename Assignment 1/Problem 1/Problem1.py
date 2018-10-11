@@ -57,7 +57,7 @@ argLen=len(sys.argv)
 
 config = ConfigParser()
 
-config_file = os.path.join(os.path.dirname(__file__), 'config.ini')
+config_file = os.path.join(os.path.dirname(__file__), '/data/config.ini')
 
 config.read(config_file)
 default=config['aws.data']
