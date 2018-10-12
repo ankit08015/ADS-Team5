@@ -130,6 +130,7 @@ else:
 url_final= url_start+cik.lstrip('0')+"/"+ accNum.replace('-','')+"/"+accNum+"-index.html"
 
 print('Final url is: %s'%(url_final))
+logging.info("URL generated is: " + url_final)
 
 #connect to a URL
 website = urlopen(url_final)
@@ -164,6 +165,7 @@ print('10q url is: %s' %(url_10q))
 url_10q= "https://www.sec.gov"+url_10q
 
 print('Complete 10q url is: %s' %(url_10q))
+logging.info('Complete 10q url is: %s' %(url_10q))
 
 if not os.path.exists('Extracted_Data_csv'):
     os.makedirs('Extracted_Data_csv')
@@ -181,6 +183,7 @@ my_tables=[]
 for table in all_tables:
         my_tables.append([[td.text.replace("\n", " ").replace("\xa0"," ") for td in row.find_all("td")] for row in table.select("tr + tr")])
 
+logging.info('Tables successfully extracted to csv')    
 
 #print(len(my_tables))
 #saving valid tables in CSV files
@@ -202,7 +205,7 @@ zipdir('/', zipf, my_tables)
 zipf.close()
 logging.info('csv and log file zipped')
 
-server_location = ''
+############### Uploading to AWS S3 bucket ###############
 
 server_location = ''
 
