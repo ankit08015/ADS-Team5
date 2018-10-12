@@ -57,29 +57,6 @@ logging.info("Location = %s" % inputLocation)
 logging.info("CIK = %s" % cik)
 logging.info("accession number = %s" % accNum)
 
-for i in range(1, argLen):
-    argument = sys.argv[i]
-    if argument.startswith('cik='):
-        pos = argument.index("=")
-        cik = argument[pos + 1:len(argument)]
-        continue
-    elif argument.startswith('accessionNumber='):
-        pos = argument.index("=")
-        accessionNumber = argument[pos + 1:len(argument)]
-        continue
-    elif argument.startswith('accessKey='):
-        pos = argument.index("=")
-        accessKey = argument[pos + 1:len(argument)]
-        continue
-    elif argument.startswith('secretKey='):
-        pos = argument.index("=")
-        secretAccessKey = argument[pos + 1:len(argument)]
-        continue
-    elif argument.startswith('location='):
-        pos = argument.index("=")
-        inputLocation = argument[pos + 1:len(argument)]
-        continue
-
 print("CIK=", cik)
 print("Accession Number=", accNum)
 print("Access Key=", accessKey)
