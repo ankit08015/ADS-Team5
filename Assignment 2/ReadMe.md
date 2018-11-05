@@ -1,6 +1,6 @@
-Case: Machine learning with Energy datasets\
+**Case: Machine learning with Energy datasets**\
 \
-Summary:\
+**Summary:**\
 As interest in IOT and sensors pick up steam, companies are trying to
 build algorithms and systems to understand consumer behavior to help
 them make better decisions. One such application is energy modeling.
@@ -23,7 +23,7 @@ in-depth analysis and provide insights on feature engineering and
 machine learning. AdaptiveAlgo only uses Python so your solution should
 be in Python. Each part should be a jupyter notebook
 
-Part 1: Research\
+**Part 1: Research**\
 Review the following papers and provide a jupyter notebook for each
 paper.\
 A.
@@ -31,7 +31,7 @@ https://www.sciencedirect.com/science/article/pii/S0378778816308970?via%3Dihub\
 B. https://www.sciencedirect.com/science/article/pii/S1364032116307420\
 C. <https://www.sciencedirect.com/science/article/pii/S0360544212002903>
 
-Part 2: Exploratory Data Analysis\
+**Part 2: Exploratory Data Analysis**\
 Preparation: Review the EDA tutorial here:\
 1. Video: https://www.youtube.com/watch?v=W5WE9Db2RLU\
 2. Code and Details:
@@ -43,7 +43,7 @@ seaborn, matplotlib etc.**) to understand the dataset.\
 • Put together a PowerPoint report with graphs and key insights garnered
 from this analysis.
 
-Part 3: Feature engineering\
+**Part 3: Feature engineering**\
 Preparation:\
 https://jakevdp.github.io/PythonDataScienceHandbook/05.04-feature-engineering.html
 (1) There are many features in the dataset. Which features are
@@ -52,14 +52,15 @@ or are there problems that need to be addressed? Conduct a thorough
 feature analysis and use pre-processing techniques (1) that needs to be
 done to make the data usable. Use Python for this.
 
-Part 4: Prediction algorithms\
+**\
+Part 4: Prediction algorithms**\
 Try out Linear regression, Random forest, Neural networks to build
 prediction models in Python using sklearn. Compute RMS, MAPE, R2 and MAE
 for Training and Testing datasets. Which model would you recommend?
 Refer to Paper A for guidance on building models. (Note: The github has
 sample R code. You can refer to and implement "similar" models
 
-Part 5: Feature Selection\
+**Part 5: Feature Selection**\
 Preparation:\
 http://scikit-learn.org/stable/modules/feature\_selection.html\#feature-selection
 (2)\
@@ -74,7 +75,7 @@ Backward search for regression models AdaptiveAlgo is curious about
 tsfresh.** Use these packages and compare and contrast feature
 engineering in each approach.
 
-Part 6: Model Validation and Selection\
+**Part 6: Model Validation and Selection**\
 Preparation:\
 https://jakevdp.github.io/PythonDataScienceHandbook/05.03-hyperparameters-and-modelvalidation.html
 (3)\
@@ -88,14 +89,14 @@ recommend. In addition, AdaptiveAlgo is intrigued by\
 • grid search options.\
 Illustrate all these in the context of model validation and selection.\
 \
-Part 7: Final pipeline\
+**Part 7: Final pipeline**\
 Which model would you finally recommend and why?\
 Create a pipeline See (Feature selection as part of a pipeline in
 http://scikitlearn.org/stable/modules/feature\_selection.html ) on how
 to automate the entire model from data ingestion to final model
 prediction
 
-Part 8: Report and Model development methodology\*\
+**Part 8: Report and Model development methodology\***\
 • Put together a comprehensive report discussing your analysis in pdf.\
 • AdaptiveAlgo wants to see the whole project implemented as jupyter
 notebooks. Create jupyter notebooks for each part.\
