@@ -76,7 +76,7 @@ def  getTrainData(trainQ):
     downloadPath='./HistoricalInputFiles/historical_data1_time_'+trainQ+'.txt'
 
     c_size = 1500000
-    df = pd.read_csv('./head.txt', sep="|",
+    df = pd.read_csv('/src/Part_2/Classification/head.txt', sep="|",
                      names=['LOAN_SEQ_NO', 'MONTHLY_REPORTING_PERIOD', 'CURRENT_ACTUAL_UPB', 'CURR_LOAN_DEL_STATUS',
                             'LOAN_AGE', 'REM_MTH_LEGAL_MATURITY', 'REPURCHASE_FLAG', 'MODIFICATION_FLAG',
                             'ZERO_BALANCE_CODE', 'ZERO_BALANCE_EFF_DATE', 'CURRENT_INTEREST_DATE',
@@ -85,7 +85,7 @@ def  getTrainData(trainQ):
                             'NON_MI_RECOVERIES', 'EXPENSES', 'LEGAL_COSTS', 'MAIN_PRES_COSTS',
                             'TAXES_INSURANCE', 'MISC_EXPENSES', 'ACTUAL_LOSS', 'MODIFICATION_COST', 'STEP_MOD_FLAG',
                             'DEFERRED_PAYMENT_MODI', 'EST_LOAN_TO_VALUE'],
-                     skipinitialspace=True, error_bad_lines=False, index_col=False, dtype='unicode')
+                     skipinitialspace=True, error_bad_lines=False, index_col=False, low_memory=False,dtype='unicode')
 
     for gm_chunk in pd.read_csv(downloadPath, sep="|",
                                 names=['LOAN_SEQ_NO', 'MONTHLY_REPORTING_PERIOD', 'CURRENT_ACTUAL_UPB',
@@ -98,7 +98,7 @@ def  getTrainData(trainQ):
                                        'TAXES_INSURANCE', 'MISC_EXPENSES', 'ACTUAL_LOSS', 'MODIFICATION_COST',
                                        'STEP_MOD_FLAG',
                                        'DEFERRED_PAYMENT_MODI', 'EST_LOAN_TO_VALUE'],
-                                skipinitialspace=True, error_bad_lines=False, index_col=False, dtype='unicode',
+                                skipinitialspace=True, error_bad_lines=False, index_col=False,low_memory=False, dtype='unicode',
                                 chunksize=c_size):
         frames = [df, gm_chunk]
         df = pd.concat(frames)
@@ -149,7 +149,7 @@ def getTestData(testQ,df):
     downloadPath = './HistoricalInputFiles/historical_data1_time_' + testQ + '.txt'
 
     c_size = 500000
-    test_df = pd.read_csv('./head.txt', sep="|",
+    test_df = pd.read_csv('/src/Part_2/Classification/head.txt', sep="|",
                      names=['LOAN_SEQ_NO', 'MONTHLY_REPORTING_PERIOD', 'CURRENT_ACTUAL_UPB', 'CURR_LOAN_DEL_STATUS',
                             'LOAN_AGE', 'REM_MTH_LEGAL_MATURITY', 'REPURCHASE_FLAG', 'MODIFICATION_FLAG',
                             'ZERO_BALANCE_CODE', 'ZERO_BALANCE_EFF_DATE', 'CURRENT_INTEREST_DATE',
@@ -158,7 +158,7 @@ def getTestData(testQ,df):
                             'NON_MI_RECOVERIES', 'EXPENSES', 'LEGAL_COSTS', 'MAIN_PRES_COSTS',
                             'TAXES_INSURANCE', 'MISC_EXPENSES', 'ACTUAL_LOSS', 'MODIFICATION_COST', 'STEP_MOD_FLAG',
                             'DEFERRED_PAYMENT_MODI', 'EST_LOAN_TO_VALUE'],
-                     skipinitialspace=True, error_bad_lines=False, index_col=False, dtype='unicode')
+                     skipinitialspace=True, error_bad_lines=False, index_col=False, low_memory=False,dtype='unicode')
 
     for gm_chunk in pd.read_csv(downloadPath, sep="|",
                                 names=['LOAN_SEQ_NO', 'MONTHLY_REPORTING_PERIOD', 'CURRENT_ACTUAL_UPB',
@@ -171,7 +171,7 @@ def getTestData(testQ,df):
                                        'TAXES_INSURANCE', 'MISC_EXPENSES', 'ACTUAL_LOSS', 'MODIFICATION_COST',
                                        'STEP_MOD_FLAG',
                                        'DEFERRED_PAYMENT_MODI', 'EST_LOAN_TO_VALUE'],
-                                skipinitialspace=True, error_bad_lines=False, index_col=False, dtype='unicode',
+                                skipinitialspace=True, error_bad_lines=False, index_col=False,low_memory=False, dtype='unicode',
                                 chunksize=c_size):
         frames = [test_df, gm_chunk]
         test_df = pd.concat(frames)
@@ -309,6 +309,13 @@ def main():
             break
         if ((currentyear == endyear) & (endquarter == currentquarter)):
             breakloopprev = True
+
+    MATRIXPATH = "./ClassificationMetrics.csv"
+    pd.set_option('display.max_rows', 100)
+    pd.set_option('display.max_columns', 500)
+    evalmatrix_df = pd.read_csv(MATRIXPATH)
+    evalmatrix_df.index = evalmatrix_df['Quarter']
+    print(evalmatrix_df)
 
 
 if __name__ == '__main__':
